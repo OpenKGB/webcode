@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y git \
     python3.5 \
     libpython3.5-dev \
     uwsgi \
-    uwsgi-plugin-python \
+    uwsgi-plugin-python3 \
     python3-psycopg2
 
 RUN easy_install pip
