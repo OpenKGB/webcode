@@ -9,11 +9,11 @@ COPY openkgb.ini /etc/uwsgi/apps-enabled/openkgb.ini
 RUN apt-get update && apt-get install -y git \
 	curl \
     g++ \
-    python2.7 \
-    libpython2.7-dev \
+    python3.5 \
+    libpython3.5-dev \
     uwsgi \
     uwsgi-plugin-python \
-    python-psycopg2
+    python3-psycopg2
 
 RUN easy_install pip
 
