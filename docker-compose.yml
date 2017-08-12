@@ -1,0 +1,27 @@
+# vim: set tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent:
+
+version: '2'
+
+services:
+    postgres:
+        restart: always
+        build: ./postgres
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=thisshouldbeajenkinssecret
+        volumes:
+            - ./webcode/media:/srv/webcode/media
+        command: postgres
+
+    django:
+        restart: always
+        build: ./django
+        links:
+            - postgres
+        volumes:
+            - /srv/workflows/static/
+        volumes_from:
+            - postgres
+        ports:
+            - 8000:8000
+        command: /bin/bash -c "python manage.py makemigrations --noinput; python manage.py migrate --noinput; /usr/bin/uwsgi --emperor /etc/uwsgi/apps-enabled/openkgb.ini"
