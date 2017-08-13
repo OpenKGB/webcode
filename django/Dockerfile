@@ -18,19 +18,6 @@ RUN apt-get update && apt-get install -y git \
 
 RUN pip3 install -r /srv/webcode/requirements.txt
 
-# Set up node.js and build frontend
-
-RUN curl --silent --location https://deb.nodesource.com/setup_7.x | bash -
-RUN apt-get install -y nodejs
-
-RUN npm install -g webpack
-
-WORKDIR /srv/workflows/workflows/frontend
-RUN npm install
-RUN mkdir -p ../static
-RUN mkdir -p ../../static
-RUN npm build
-
 # Get everything ready and run
 
 WORKDIR /srv/webcode/webcode
