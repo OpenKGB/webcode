@@ -38,7 +38,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'postgres_password', variable: 'POSTGRES_PASSWORD')]) {
                     sh '''
                         cd /srv/openkgb/webcode
-                        POSTGRES_PASSWORD=$POSTGRES_PASSWORD docker-compose up -d -e POSTGRES_PASSWORD
+                        docker-compose up -d -e $POSTGRES_PASSWORD
                     '''
                 }
             }
