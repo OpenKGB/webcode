@@ -10,11 +10,13 @@ pipeline {
             sh './tools/run-tests.sh'
         }
 
-        stage('Clear current deployment') {
-            sh '''
-                cd /srv/webcode
-                docker-compose down --rmi local -v
-            '''
+        stage('Clean current deployment') {
+            steps {
+                sh '''
+                    cd /srv/openkgb/webcode
+                    docker-compose down --rmi local -v
+                '''
+            }
         }
 
         stage('Deploy') {
