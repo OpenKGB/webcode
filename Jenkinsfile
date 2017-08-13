@@ -35,7 +35,7 @@ pipeline {
                 withCredentials([file(credentialsId: 'local_settings.py', variable: 'LOCAL_SETTINGS')]) {
                     sh 'cat $LOCAL_SETTINGS > /srv/openkgb/webcode/django/webcode/webcode/local_settings.py'
                 }
-                withCredentials([string(credentials_id: 'postgres_password', variable: 'POSTGRES_PASSWORD')]) {
+                withCredentials([string(credentialsId: 'postgres_password', variable: 'POSTGRES_PASSWORD')]) {
                     sh '''
                         cd /srv/openkgb/webcode
                         POSTGRES_PASSWORD=$POSTGRES_PASSWORD docker-compose up -d -e POSTGRES_PASSWORD
