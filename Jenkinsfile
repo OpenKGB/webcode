@@ -10,6 +10,7 @@ pipeline {
 
         stage('Tests') {
             steps {
+                sleep(120)
                 sh './tools/run-tests.sh'
             }
         }
