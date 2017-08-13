@@ -19,8 +19,7 @@ pipeline {
         stage('Remove old docker entities') {
             steps {
                 sh '''
-                    cd /srv/openkgb/webcode
-                    docker-compose down --rmi local -v || true
+                    cd /srv/openkgb/webcode && docker-compose down --rmi local -v || true
                 '''
             }
         }
