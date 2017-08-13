@@ -3,14 +3,18 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            checkout scm
+            steps {
+                checkout scm
+            }
         }
 
         stage('Tests') {
-            sh './tools/run-tests.sh'
+            steps {
+                sh './tools/run-tests.sh'
+            }
         }
 
-        stage('Clean current deployment') {
+        stage('Remove old docker entities') {
             steps {
                 sh '''
                     cd /srv/openkgb/webcode
