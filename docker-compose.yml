@@ -10,7 +10,7 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
         volumes:
-            - ./webcode/media:/srv/webcode/media
+            - ./django/webcode/media:/srv/webcode/media
         command: postgres
 
     django:
