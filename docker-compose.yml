@@ -8,7 +8,7 @@ services:
         build: ./postgres
         environment:
             - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=thisshouldbeajenkinssecret
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
         volumes:
             - ./webcode/media:/srv/webcode/media
         command: postgres
