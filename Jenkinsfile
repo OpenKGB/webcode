@@ -35,10 +35,10 @@ pipeline {
                 withCredentials([file(credentialsId: 'local_settings.py', variable: 'LOCAL_SETTINGS')]) {
                     sh 'cat $LOCAL_SETTINGS > /srv/openkgb/webcode/django/webcode/webcode/local_settings.py'
                 }
-                withCredentials([file(credentialsId: 'plotyourthought.key', variable: 'PLOTYOURTHOUGHT_KEY')] {
+                withCredentials([file(credentialsId: 'plotyourthought.key', variable: 'PLOTYOURTHOUGHT_KEY')]) {
                     sh 'cat $PLOTYOURTHOUGHT_KEY' > /srv/openkgb/webcode/nginx/plotyourthought.key'
                 }
-                withCredentials([file(credentialsId: 'plotyourthought.crt', variable: 'PLOTYOURTHOUGHT_CRT')] {
+                withCredentials([file(credentialsId: 'plotyourthought.crt', variable: 'PLOTYOURTHOUGHT_CRT')]) {
                     sh 'cat $PLOTYOURTHOUGHT_CRT' > /srv/openkgb/webcode/nginx/plotyourthought.crt'
                 }
                 withCredentials([string(credentialsId: 'postgres_password', variable: 'POSTGRES_PASSWORD')]) {
