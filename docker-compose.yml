@@ -25,3 +25,16 @@ services:
         ports:
             - 8000:8000
         command: /bin/bash -c "python manage.py makemigrations --noinput; python manage.py migrate --noinput; /usr/bin/uwsgi --emperor /etc/uwsgi/apps-enabled/openkgb.ini"
+
+    nginx:
+        restart: always
+        build: ./nginx
+        ports:
+            - 80:80
+            - 443:443
+        depends_on:
+            - django
+        volumes_from:
+            - django
+            - postgres
+        command: /bin/bash -c '/usr/sbin/nginx -g "daemon off;"'
