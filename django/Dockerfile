@@ -1,6 +1,11 @@
-FROM debian:latest
+FROM debian:9.1
+
+# Copy django code to the image
 
 ADD . /srv/webcode
+
+# Copy uWSGI settings to the image
+
 COPY openkgb.ini /etc/uwsgi/apps-available/openkgb.ini
 COPY openkgb.ini /etc/uwsgi/apps-enabled/openkgb.ini
 
@@ -16,7 +21,7 @@ RUN apt-get update && apt-get install -y git \
     uwsgi-plugin-python3 \
     python3-psycopg2
 
-RUN pip3 install -r /srv/webcode/requirements.txt
+RUN pip3 install --no-cache-dir -r /srv/webcode/requirements.txt
 
 # Get everything ready and run
 
