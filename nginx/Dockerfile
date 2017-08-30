@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y --force-yes --no-install-recommends \
 # Copy nginx configuration, certificate and private key to the image
 
 COPY openkgb.conf /etc/nginx/sites-available/default
-COPY plotyourthought.crt /etc/ssl/private/
-COPY plotyourthought.key /etc/ssl/private/
+COPY openkgb.crt /etc/ssl/private/
+COPY openkgb.key /etc/ssl/private/
 
 EXPOSE 80 443
 
