@@ -32,17 +32,16 @@ pipeline {
                     rm -rf *
                     git clone https://github.com/OpenKGB/webcode.git
                 '''
-                withCredentials([file(credentialsId: 'local_settings.py', variable: 'LOCAL_SETTINGS')]) {
-                    sh 'cat $LOCAL_SETTINGS > /srv/openkgb/webcode/django/webcode/webcode/local_settings.py'
-                }
-                withCredentials([file(credentialsId: 'openkgb.key', variable: 'OPENKGB_KEY')]) {
-                    sh 'cat $OPENKGB_KEY > /srv/openkgb/webcode/nginx/openkgb.key'
-                }
-                withCredentials([file(credentialsId: 'openkgb.crt', variable: 'OPENKGB_CRT')]) {
-                    sh 'cat $OPENKGB_CRT > /srv/openkgb/webcode/nginx/openkgb.crt'
-                }
-                withCredentials([string(credentialsId: 'postgres_password', variable: 'POSTGRES_PASSWORD')]) {
-                    sh '''
+                withCredentials([
+                    file(credentialsId: 'local_settings.py', variable: 'LOCAL_SETTINGS'),
+                    file(credentialsId: 'openkgb.key', variable: 'OPENKGB_KEY'),
+                    file(credentialsId: 'openkgb.crt', variable: 'OPENKGB_CRT'),
+                    string(credentialsId: 'postgres_password', variable: 'POSTGRES_PASSWORD')
+                ]) {
+                   sh '''
+                        cat $LOCAL_SETTINGS > /srv/openkgb/webcode/django/webcode/webcode/local_settings.py
+                        cat $OPENKGB_KEY > /srv/openkgb/webcode/nginx/openkgb.key
+                        cat $OPENKGB_CRT > /srv/openkgb/webcode/nginx/openkgb.crt
                         cd /srv/openkgb/webcode
                         export POSTGRES_PASSWORD=$POSTGRES_PASSWORD
                         docker-compose up -d
