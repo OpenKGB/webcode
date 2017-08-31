@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:stretch-20170723
 
 # Copy django code to the image
 
