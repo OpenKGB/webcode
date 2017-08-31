@@ -1,4 +1,4 @@
-FROM debian:9.1
+FROM python:3
 
 # Copy django code to the image
 

@@ -65,7 +65,7 @@ TEMPLATES = [
 ]
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "static"),
 )
 
 WSGI_APPLICATION = 'webcode.wsgi.application'
