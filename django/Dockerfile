@@ -27,6 +27,7 @@ RUN pip3 install --no-cache-dir -r /srv/webcode/requirements.txt
 
 # Build frontend
 WORKDIR /srv/webcode/webcode/webcode/frontend
+RUN npm install
 RUN npm run build
 
 # Get backend ready and run
