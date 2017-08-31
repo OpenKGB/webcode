@@ -19,7 +19,7 @@ services:
         links:
             - postgres
         volumes:
-            - /srv/workflows/static/
+            - /srv/webcode/webcode/static/
         volumes_from:
             - postgres
         ports:
