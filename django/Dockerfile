@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -y git \
     uwsgi-plugin-python3 \
     python3-psycopg2
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - && apt-get install -y nodejs && apt-get install -y build-essential
+RUN curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash - 
+RUN apt-get install -y nodejs
+RUN apt-get install -y build-essential
 
 # Copy django code to the image
 ADD . /srv/webcode
