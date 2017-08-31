@@ -1,4 +1,4 @@
-FROM debian-latest
+FROM debian:latest
 
 # Copy django code to the image
 
