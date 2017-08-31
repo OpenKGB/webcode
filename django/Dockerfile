@@ -1,14 +1,5 @@
 FROM debian:stretch-20170723
 
-# Copy django code to the image
-
-ADD . /srv/webcode
-
-# Copy uWSGI settings to the image
-
-COPY openkgb.ini /etc/uwsgi/apps-available/openkgb.ini
-COPY openkgb.ini /etc/uwsgi/apps-enabled/openkgb.ini
-
 # Install dependencies
 
 RUN apt-get update && apt-get install -y git \
@@ -20,6 +11,17 @@ RUN apt-get update && apt-get install -y git \
     uwsgi \
     uwsgi-plugin-python3 \
     python3-psycopg2
+
+# Copy django code to the image
+
+ADD . /srv/webcode
+
+# Copy uWSGI settings to the image
+
+COPY openkgb.ini /etc/uwsgi/apps-available/openkgb.ini
+COPY openkgb.ini /etc/uwsgi/apps-enabled/openkgb.ini
+
+# Install pip dependencies
 
 RUN pip3 install --no-cache-dir -r /srv/webcode/requirements.txt
 
