@@ -12,10 +12,6 @@ COPY openkgb.ini /etc/uwsgi/apps-enabled/openkgb.ini
 # Install dependencies
 
 RUN apt-get update && apt-get install -y git \
-	curl \
-    g++ \
-    python3.5 \
-    libpython3.5-dev \
     python3-pip \
     uwsgi \
     uwsgi-plugin-python3 \
