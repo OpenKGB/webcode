@@ -26,5 +26,5 @@ router = DefaultRouter()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^apiv1/', include(router.urls, namespace='apiv1')),
-    url(r'^$', index, name='index)
+    url(r'^$', index, name='index')
 ]
