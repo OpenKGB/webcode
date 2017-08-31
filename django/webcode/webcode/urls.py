@@ -18,9 +18,13 @@ from django.contrib import admin
 
 from rest_framework.routers import DefaultRouter
 
+from apiv1.views import index
+
+
 router = DefaultRouter()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(router.urls, namespace='api'))
+    url(r'^apiv1/', include(router.urls, namespace='apiv1')),
+    url(r'^$', index, name='index)
 ]
