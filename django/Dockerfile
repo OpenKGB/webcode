@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y git \
     uwsgi-plugin-python3 \
     python3-psycopg2
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
 RUN apt-get install -y build-essential
 
@@ -27,6 +27,7 @@ RUN pip3 install --no-cache-dir -r /srv/webcode/requirements.txt
 
 # Build frontend
 WORKDIR /srv/webcode/webcode/webcode/frontend
+RUN rm -rf node_modules
 RUN npm install
 RUN npm run build
 
