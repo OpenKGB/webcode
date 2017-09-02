@@ -7,6 +7,10 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Home from 'pages/Home.jsx';
 import About from 'pages/About.jsx';
+import Data from 'pages/Data.jsx';
+import People from 'pages/People.jsj';
+import Organizations from 'pages/Organizations.jsx';
+import News from 'pages/News.jsx';
 
 class Layout extends React.Component {
   render() {
@@ -22,6 +26,10 @@ class Layout extends React.Component {
             <Switch>
               <Route exact path="/home" component={Home} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/data" component={Data} />
+              <Route exact path="/people" component={People} />
+              <Route exact path="/organizations" component={Organizations} />
+              <Route exact path="/news" component={News} />
               <Redirect to="/home" />
             </Switch>
           <Footer />
