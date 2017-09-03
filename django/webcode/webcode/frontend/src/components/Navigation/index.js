@@ -39,22 +39,22 @@ class Navigation extends Component {
               </div>
             </li>
             <li className={this.activeRoute("/home")}>
-              <Link to="/home"><i className="fa fa-th-large"></i> <span className="nav-label">Home</span></Link>
+              <Link to="/home"><i className="pe-7s-home" style={{color: 'white'}}></i> <span className="nav-label">Home</span></Link>
             </li>
             <li className={this.activeRoute("/about")}>
-              <Link to="/about"><i className="fa fa-th-large"></i> <span className="nav-label">About</span></Link>
+              <Link to="/about"><i className="pe-7s-info" style={{color: 'white'}}></i> <span className="nav-label">About</span></Link>
             </li>
             <li className={this.activeRoute("/data")}>
-              <Link to="/data"><i className="fa fa-th-large"></i> <span className="nav-label">Data</span></Link>
+              <Link to="/data"><i className="pe-7s-server" style={{color: 'white'}}></i> <span className="nav-label">Data</span></Link>
             </li>
             <li className={this.activeRoute("/people")}>
-              <Link to="/people"><i className="fa fa-th-large"></i> <span className="nav-label">People</span></Link>
+              <Link to="/people"><i className="pe-7s-users" style={{color: 'white'}}></i> <span className="nav-label">People</span></Link>
             </li>
             <li className={this.activeRoute("/organizations")}>
-              <Link to="/organizations"><i className="fa fa-th-large"></i> <span className="nav-label">Organizations</span></Link>
+              <Link to="/organizations"><i className="pe-7s-culture" style={{color: 'white'}}></i> <span className="nav-label">Organizations</span></Link>
             </li>
             <li className={this.activeRoute("/news")}>
-              <Link to="/news"><i className="fa fa-th-large"></i> <span className="nav-label">News</span></Link>
+              <Link to="/news"><i className="pe-7s-news-paper" style={{color: 'white'}}></i> <span className="nav-label">News</span></Link>
             </li>
           </ul>
         </nav>
