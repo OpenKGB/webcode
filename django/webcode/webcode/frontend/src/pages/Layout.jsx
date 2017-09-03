@@ -8,7 +8,7 @@ import Header from 'components/Header';
 import Home from 'pages/Home.jsx';
 import About from 'pages/About.jsx';
 import Data from 'pages/Data.jsx';
-import People from 'pages/People.jsj';
+import People from 'pages/People.jsx';
 import Organizations from 'pages/Organizations.jsx';
 import News from 'pages/News.jsx';
 

@@ -58,7 +58,7 @@ module.exports = {
     ]
   },
   devServer: {
-    publicPath: '/',
+    publicPath: '/static/',
     contentBase: './dist',
     hot: true
   },
