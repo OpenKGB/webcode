@@ -46,6 +46,7 @@ pipeline {
                         cat $OPENKGB_CRT > /srv/openkgb/webcode/nginx/openkgb.crt
                         cd /srv/openkgb/webcode
                         export POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+                        docker-compose build --no-cache django
                         docker-compose up -d --build django postgres nginx
                     '''
                 }
