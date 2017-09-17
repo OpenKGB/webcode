@@ -22,7 +22,7 @@ pipeline {
                     cd /srv/openkgb/webcode || exit 0
                     # docker-compose down --rmi local -v || true
                     docker-compose down -v || true
-                    docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+                    docker rmi $(docker images --filter "dangling=true" -q --no-trunc) || true
                 '''
             }
         }
