@@ -25,12 +25,6 @@ COPY openkgb.ini /etc/uwsgi/apps-enabled/openkgb.ini
 # Install pip dependencies
 RUN pip3 install --no-cache-dir -r /srv/webcode/requirements.txt
 
-# Build frontend
-WORKDIR /srv/webcode/webcode/webcode/frontend
-RUN rm -rf node_modules
-RUN npm install
-RUN npm run build
-
 # Get backend ready and run
 WORKDIR /srv/webcode/webcode
 RUN python3 manage.py check

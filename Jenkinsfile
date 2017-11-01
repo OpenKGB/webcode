@@ -44,6 +44,12 @@ pipeline {
                         cat $LOCAL_SETTINGS > /srv/openkgb/webcode/django/webcode/webcode/local_settings.py
                         cat $OPENKGB_KEY > /srv/openkgb/webcode/nginx/openkgb.key
                         cat $OPENKGB_CRT > /srv/openkgb/webcode/nginx/openkgb.crt
+
+                        cd /srv/openkgb/webcode/webcode/webcode/frontend
+                        rm -rf node_modules
+                        npm install
+                        npm run build
+
                         cd /srv/openkgb/webcode
                         export POSTGRES_PASSWORD=$POSTGRES_PASSWORD
                         docker-compose build --no-cache django
