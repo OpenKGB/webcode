@@ -45,7 +45,7 @@ pipeline {
                         cat $OPENKGB_KEY > /srv/openkgb/webcode/nginx/openkgb.key
                         cat $OPENKGB_CRT > /srv/openkgb/webcode/nginx/openkgb.crt
 
-                        cd /srv/openkgb/webcode/webcode/django/webcode/frontend
+                        cd /srv/openkgb/webcode/django/webcode/webcode/frontend
                         rm -rf node_modules
                         npm install
                         npm run build
